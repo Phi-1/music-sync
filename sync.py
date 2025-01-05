@@ -9,8 +9,8 @@ import os
 from dotenv import load_dotenv
 
 # path is relative to music folder
-def get_music_file(music_folder: str, path, url: str):
-    res = requests.request("get", f"{url}/music", data=path.decode())
+def get_music_file(music_folder: str, path: str, url: str):
+    res = requests.request("get", f"{url}/music", data=path.encode())
     with open(f"{music_folder}{path}", "bw") as file:
         file.write(res.content)
 
