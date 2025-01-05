@@ -6,6 +6,7 @@ import json
 import requests
 import backend.fs as fs
 import os
+from dotenv import load_dotenv
 
 # path is relative to music folder
 def get_music_file(music_folder: str, path: str, url: str):
@@ -33,7 +34,8 @@ def create_index_json(folder: str) -> str:
     return json.dumps({ "index": index })
 
 def main():
-    music_folder = "./pi/usr/music"
+    load_dotenv()
+    music_folder = os.environ.get("MUSIC_FOLDER")
     mainframe_url = "http://192.168.1.92:7777"
     index = create_index_json(music_folder)
     missing_index = get_missing_music_index(index, mainframe_url)
