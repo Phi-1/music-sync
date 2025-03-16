@@ -36,7 +36,7 @@ def create_index_json(folder: str) -> str:
 def main():
     load_dotenv()
     music_folder = os.environ.get("MUSIC_FOLDER")
-    mainframe_url = "http://192.168.1.92:7777"
+    mainframe_url = "http://192.168.1.76:7777"
     index = create_index_json(music_folder)
     missing_index = get_missing_music_index(index, mainframe_url)
     if missing_index == None:

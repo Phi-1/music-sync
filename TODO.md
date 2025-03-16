@@ -1,0 +1,3 @@
+- detect moving of files through yt-dlp ids
+- remake index on server side when syncing instead of at startup
+- detect removed files 
